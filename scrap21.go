@@ -24,24 +24,33 @@ func main() {
 		colly.AllowedDomains("inshaker.com", "ru.inshaker.com"),
 	)
 
-	collector.OnHTML("td > table tr", func(element *colly.HTMLElement) {
-		factName := element.DOM.Find("td:nth-child(2)").Text()
+	collector.OnHTML(".cocktail-item.promoted ", func(element *colly.HTMLElement) {
+		factId, err := strconv.Atoi(element.Attr("data-id"))
+		factName := element.DOM.Find(".cocktail-item-preview").Text()
+		factRecipe := element.DOM.Find(".cocktail-item-goods").Text()
+		factEquipments := element.DOM.Find("name").Text()
+		if err != nil {
+			log.Println("Could not get id")
+		}
 
-		factDesk := element.Text
+		//factDesk := element.DOM.Find("").Text()
 
 		fact2 := Fact2{
-			ID:   factId,
-			Name: factName,
+			ID:      factId,
+			Name:    factName,
+			Recipes: factRecipe,
+			Equipments: factEquipments,
 		}
 
 		allFacts2 = append(allFacts2, fact2)
 
-		for i := 0; i < 5; i++ {
-			fmt.Printf("Scraping Page : %d\n", i)
-			collector.Visit("https://ru.inshaker.com/cocktails/" + strconv.Itoa(i))
-		}
 	})
 	//".common-title header.common-name"
+
+	for i := 0; i < 5; i++ {
+		fmt.Printf("Scraping Page : %d\n", i)
+		collector.Visit("https://ru.inshaker.com/cocktails/" + strconv.Itoa(i))
+	}
 
 	collector.OnRequest(func(request *colly.Request) {
 		fmt.Println("Visiting: ", request.URL.String())
