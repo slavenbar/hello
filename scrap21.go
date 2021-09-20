@@ -11,8 +11,10 @@ import (
 )
 
 type Fact2 struct {
-	ID          int    `json:"id"`
-	Description string `json:"Description"`
+	ID         int    `json:"id"`
+	Name       string `json:"Name"`
+	Recipes    string `json:"Recipes"`
+	Equipments string `json:"Equipments"`
 }
 
 func main() {
@@ -22,17 +24,14 @@ func main() {
 		colly.AllowedDomains("inshaker.com", "ru.inshaker.com"),
 	)
 
-	collector.OnHTML(".cocktail-item.promoted", func(element *colly.HTMLElement) {
-		factId, err := strconv.Atoi(element.Attr("data-id"))
-		if err != nil {
-			log.Println("Could not get id")
-		}
+	collector.OnHTML("td > table tr", func(element *colly.HTMLElement) {
+		factName := element.DOM.Find("td:nth-child(2)").Text()
 
-		factDesc := element.Text
+		factDesk := element.Text
 
 		fact2 := Fact2{
-			ID:          factId,
-			Description: factDesc,
+			ID:   factId,
+			Name: factName,
 		}
 
 		allFacts2 = append(allFacts2, fact2)
@@ -41,14 +40,15 @@ func main() {
 			fmt.Printf("Scraping Page : %d\n", i)
 			collector.Visit("https://ru.inshaker.com/cocktails/" + strconv.Itoa(i))
 		}
-
-		log.Printf("Scraping Complete\n")
-		log.Println(collector)
 	})
+	//".common-title header.common-name"
+
 	collector.OnRequest(func(request *colly.Request) {
 		fmt.Println("Visiting: ", request.URL.String())
 	})
 	collector.Visit("https://ru.inshaker.com/cocktails/")
+	log.Printf("Scraping Complete\n")
+	log.Println(collector)
 
 	writeJason2(allFacts2)
 }
