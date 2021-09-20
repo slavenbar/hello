@@ -1,7 +1,7 @@
 [
  {
   "id": 0,
-  "Description": "Белый русский"
+  "Description": "Джин тоник"
  },
  {
   "id": 0,
@@ -309,26 +309,6 @@
  },
  {
   "id": 0,
-  "Description": "Джин тоник"
- },
- {
-  "id": 0,
-  "Description": "Секс на пляже"
- },
- {
-  "id": 0,
-  "Description": "Мохито"
- },
- {
-  "id": 0,
-  "Description": "Космополитен"
- },
- {
-  "id": 0,
-  "Description": "Лонг айленд айс ти"
- },
- {
-  "id": 0,
   "Description": "Текила санрайз"
  },
  {
@@ -337,23 +317,11 @@
  },
  {
   "id": 0,
-  "Description": "Апероль Шприц"
- },
- {
-  "id": 0,
   "Description": "Кровавая Мэри"
  },
  {
   "id": 0,
-  "Description": "Манхэттен"
- },
- {
-  "id": 0,
-  "Description": "Голубая лагуна"
- },
- {
-  "id": 0,
-  "Description": "Негрони"
+  "Description": "Мохито"
  },
  {
   "id": 0,
@@ -361,26 +329,58 @@
  },
  {
   "id": 0,
-  "Description": "Щавелевый лимонад в кувшине"
+  "Description": "Секс на пляже"
  },
  {
   "id": 0,
-  "Description": "Морской бриз"
+  "Description": "Голубая лагуна"
  },
  {
   "id": 0,
-  "Description": "Чер­но­смо­ро­ди­но­вый ли­мо­над в кув­ши­не"
+  "Description": "Апероль Шприц"
  },
  {
   "id": 0,
-  "Description": "Нортон стрит"
+  "Description": "Лонг айленд айс ти"
  },
  {
   "id": 0,
-  "Description": "Абсент с энергетиком"
+  "Description": "Белый русский"
  },
  {
   "id": 0,
-  "Description": "Джакарта дайкири"
+  "Description": "Негрони"
+ },
+ {
+  "id": 0,
+  "Description": "Космополитен"
+ },
+ {
+  "id": 0,
+  "Description": "Манхэттен"
+ },
+ {
+  "id": 0,
+  "Description": "Ром коллинз"
+ },
+ {
+  "id": 0,
+  "Description": "Смородиновая кайпиринья"
+ },
+ {
+  "id": 0,
+  "Description": "Белый глинтвейн"
+ },
+ {
+  "id": 0,
+  "Description": "Огуречный лимонад"
+ },
+ {
+  "id": 0,
+  "Description": "Мармеладная маргарита"
+ },
+ {
+  "id": 0,
+  "Description": "Шерлок Тоунз"
  }
 ]

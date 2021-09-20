@@ -23,7 +23,7 @@ func main() {
 	defer writer.Flush()
 
 	c := colly.NewCollector(
-		colly.AllowedDomains("ru.inshaker.com"),
+		colly.AllowedDomains("ru.inshaker.com","inshaker.com"),
 	)
 	c.OnHTML(".common-title header", func(e *colly.HTMLElement) {
 		writer.Write([]string{
