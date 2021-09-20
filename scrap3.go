@@ -109,7 +109,7 @@ func main() {
 	})
 
 	// Start scraping on http://coursera.com/browse
-	c.Visit("https://ru.inshaker.com/cocktails")
+	c.Visit("https://ru.inshaker.com/cocktails45")
 
 	enc := json.NewEncoder(file)
 	enc.SetIndent("", "  ")
