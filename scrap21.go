@@ -28,7 +28,7 @@ func main() {
 		factId, err := strconv.Atoi(element.Attr("data-id"))
 		factName := element.DOM.Find(".cocktail-item-preview").Text()
 		factRecipe := element.DOM.Find(".cocktail-item-goods").Text()
-		factEquipments := element.DOM.Find("name").Text()
+		factEquipments := element.ChildAttr("a","class")
 		if err != nil {
 			log.Println("Could not get id")
 		}
@@ -36,9 +36,9 @@ func main() {
 		//factDesk := element.DOM.Find("").Text()
 
 		fact2 := Fact2{
-			ID:      factId,
-			Name:    factName,
-			Recipes: factRecipe,
+			ID:         factId,
+			Name:       factName,
+			Recipes:    factRecipe,
 			Equipments: factEquipments,
 		}
 
@@ -63,7 +63,7 @@ func main() {
 }
 
 func writeJason2(data []Fact2) {
-	file, err := json.MarshalIndent(data, "", " ")
+	file, err := json.MarshalIndent(data, " ", " ")
 	if err != nil {
 		log.Println("Unable create json file")
 		return
